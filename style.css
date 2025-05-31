@@ -704,3 +704,53 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+
+/* Neon mouse cursor */
+/* body {
+  cursor: none; /* Hide default cursor */
+ 
+/* 
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border: 2px solid var(--main-color);
+  border-radius: 50%;
+  pointer-events: none; /* So it doesn't block clicks 
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px var(--main-color),
+              0 0 20px var(--main-color),
+              0 0 30px var(--main-color),
+              0 0 40px var(--main-color);
+  transition: transform 0.05s ease;
+  z-index: 9999; On top of everything
+} */
+
+/* Neon mouse cursor */
+body {
+  cursor: none; /* Hide default cursor */
+}
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border: 2px solid var(--main-color);
+  border-radius: 50%;
+  pointer-events: none; /* So it doesn't block clicks */
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px var(--main-color),
+              0 0 20px var(--main-color),
+              0 0 30px var(--main-color),
+              0 0 40px var(--main-color);
+  transition: transform 0.05s ease;
+  z-index: 9999; /* On top of everything */
+}
+
+
+
