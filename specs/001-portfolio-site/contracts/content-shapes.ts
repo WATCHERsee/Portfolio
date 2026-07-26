@@ -27,6 +27,8 @@ export interface Project {
   stack: string[];
   /** Required unless placeholder is true */
   repoUrl: string | null;
+  /** Optional deployed/live demo URL (e.g. a Vercel deployment) */
+  liveUrl: string | null;
   placeholder: boolean;
 }
 

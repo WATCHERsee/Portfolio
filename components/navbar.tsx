@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { profile } from "@/data/profile";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
+import { ChatTrigger } from "@/components/chat/chat-trigger";
 
 const NAV_LINKS = [
   { href: "#work", label: "Work" },
@@ -50,47 +51,50 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden items-center gap-3 sm:flex">
-          <a
-            href={profile.links.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            className="text-foreground-muted transition-colors hover:text-foreground"
-          >
-            <GithubIcon className="h-[18px] w-[18px]" />
-          </a>
-          <a
-            href={profile.links.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="text-foreground-muted transition-colors hover:text-foreground"
-          >
-            <LinkedinIcon className="h-[18px] w-[18px]" />
-          </a>
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className="hidden items-center gap-3 sm:flex">
+            <a
+              href={profile.links.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="text-foreground-muted transition-colors hover:text-foreground"
+            >
+              <GithubIcon className="h-[18px] w-[18px]" />
+            </a>
+            <a
+              href={profile.links.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="text-foreground-muted transition-colors hover:text-foreground"
+            >
+              <LinkedinIcon className="h-[18px] w-[18px]" />
+            </a>
+            <button
+              type="button"
+              onClick={() => scrollTo("contact")}
+              className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-[#050505] transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98]"
+            >
+              Let&rsquo;s Talk
+            </button>
+            <ChatTrigger />
+          </div>
+
           <button
             type="button"
-            onClick={() => scrollTo("contact")}
-            className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-[#050505] transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98]"
+            onClick={() => setOpen((v) => !v)}
+            className="relative flex h-9 w-9 items-center justify-center rounded-full text-foreground sm:hidden"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
           >
-            Let&apos;s Talk
+            {open ? (
+              <X className="h-5 w-5" strokeWidth={1.5} />
+            ) : (
+              <Menu className="h-5 w-5" strokeWidth={1.5} />
+            )}
           </button>
         </div>
-
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className="relative flex h-9 w-9 items-center justify-center rounded-full text-foreground sm:hidden"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-        >
-          {open ? (
-            <X className="h-5 w-5" strokeWidth={1.5} />
-          ) : (
-            <Menu className="h-5 w-5" strokeWidth={1.5} />
-          )}
-        </button>
       </nav>
 
       {open && (
@@ -111,6 +115,12 @@ export function Navbar() {
                 </button>
               </li>
             ))}
+            <li
+              style={{ transitionDelay: `${NAV_LINKS.length * 60}ms` }}
+              className="opacity-0 animate-[fadeUp_0.6s_ease-out_forwards]"
+            >
+              <ChatTrigger variant="menu" onNavigate={() => setOpen(false)} />
+            </li>
           </ul>
           <div className="flex items-center gap-6">
             <a

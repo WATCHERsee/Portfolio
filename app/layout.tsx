@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Space_Grotesk } from "next/font/google";
+import { ChatWidget } from "@/components/chat/chat-widget";
+import { ChatProvider } from "@/components/chat/chat-context";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -47,7 +49,10 @@ export default function RootLayout({
       className={`${geistSans.variable} ${spaceGrotesk.variable} h-full antialiased dark`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        {children}
+        <ChatProvider>
+          {children}
+          <ChatWidget />
+        </ChatProvider>
       </body>
     </html>
   );

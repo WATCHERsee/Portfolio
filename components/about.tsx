@@ -6,16 +6,16 @@ export function About() {
     <section id="about" className="px-6 py-24 sm:px-10 sm:py-32">
       <div className="mx-auto grid w-full max-w-5xl gap-12 md:grid-cols-2 md:items-start">
         <Reveal>
-          <span className="inline-flex items-center rounded-full border border-hairline bg-glass px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-accent-strong">
+          <span className="inline-flex items-center rounded-full border border-hairline bg-glass px-3 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-accent-strong">
             About
           </span>
-          <h2 className="font-display mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="font-display mt-4 text-3xl font-semibold leading-[1.15] tracking-tight text-foreground sm:text-4xl">
             {profile.name}
           </h2>
           <p className="mt-6 max-w-md text-base leading-relaxed text-foreground-muted">
             {profile.bio}
           </p>
-          <p className="mt-4 text-sm text-foreground-muted/70">
+          <p className="mt-4 text-sm text-foreground-muted/85">
             {profile.education}
           </p>
         </Reveal>

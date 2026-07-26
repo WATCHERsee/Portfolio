@@ -6,11 +6,11 @@ export function Skills() {
     <section id="skills" className="px-6 py-24 sm:px-10 sm:py-32">
       <div className="mx-auto w-full max-w-5xl">
         <Reveal>
-          <span className="inline-flex items-center rounded-full border border-hairline bg-glass px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-accent-strong">
+          <span className="inline-flex items-center rounded-full border border-hairline bg-glass px-3 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-accent-strong">
             Skills
           </span>
-          <h2 className="font-display mt-4 max-w-lg text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-            Systems thinking, shipped with frontend craft.
+          <h2 className="font-display mt-4 max-w-lg text-3xl font-semibold leading-[1.15] tracking-tight text-foreground sm:text-4xl">
+            Systems thinking, shipped with frontend&nbsp;craft.
           </h2>
         </Reveal>
 

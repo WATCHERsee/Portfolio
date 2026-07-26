@@ -1,23 +1,14 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
-import { ThreeErrorBoundary } from "@/components/three/error-boundary";
-import { WebglFallback } from "@/components/three/webgl-fallback";
-import { useWebglSupport } from "@/components/three/use-webgl-support";
-
-const HeroScene = dynamic(
-  () => import("@/components/three/hero-scene").then((m) => m.HeroScene),
-  { ssr: false }
-);
+import { AgentConstellation } from "@/components/hero/agent-constellation";
 
 function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 }
 
 export function Hero() {
-  const { supported, ready } = useWebglSupport();
   const prefersReducedMotion = useReducedMotion();
 
   return (
@@ -25,16 +16,14 @@ export function Hero() {
       id="hero"
       className="relative flex min-h-[100dvh] items-center overflow-hidden px-6 pt-28 pb-24 sm:px-10"
     >
-      <ThreeErrorBoundary fallback={<WebglFallback />}>
-        {ready && supported ? <HeroScene /> : <WebglFallback />}
-      </ThreeErrorBoundary>
+      <AgentConstellation />
 
       <div className="relative z-10 mx-auto w-full max-w-5xl">
         <motion.div
           initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
-          className="inline-flex items-center rounded-full border border-hairline bg-glass px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-accent-strong backdrop-blur-md"
+          className="inline-flex items-center rounded-full border border-hairline bg-glass px-3 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-accent-strong backdrop-blur-md"
         >
           Automation &amp; AI Agent Builder
         </motion.div>
@@ -45,7 +34,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.08, ease: [0.32, 0.72, 0, 1] }}
           className="font-display mt-6 max-w-3xl text-[clamp(2.5rem,6vw,4.75rem)] font-semibold leading-[1.05] tracking-tight text-foreground"
         >
-          I build AI agents and automations that actually ship.
+          I build AI agents and automations that actually&nbsp;ship.
         </motion.h1>
 
         <motion.p
